@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
     marginBottom: 5
   },
   header: {
-    height: "35%",
+    height: "49%",
     width: "100%",
     backgroundColor: Colors.backgroundColor,
     justifyContent: "center"
