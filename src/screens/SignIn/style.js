@@ -46,8 +46,16 @@ export const styles = StyleSheet.create({
     justifyContent: "center"
   },
   formContainer: {
-    justifyContent: "space-evenly",
-    height: "100%"
+    padding: 20,
+    width: "100%",
+    flex: 1,
+    justifyContent: "space-around",
+    alignItems: "center"
+  },
+  formStyling: {
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "gray"
   },
   tabWrapper: {
     backgroundColor: "white",
@@ -65,5 +73,6 @@ export const styles = StyleSheet.create({
     shadowOpacity: 12,
     shadowRadius: 2,
     elevation: 3
-  }
+  },
+  tabContent: { fontSize: 18, fontWeight: "bold" }
 });

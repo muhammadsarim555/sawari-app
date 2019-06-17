@@ -18,7 +18,7 @@ import { styles } from "./style";
 
 export default class SignIn extends Component {
   state = {
-    isActive: ""
+    isActive: "signIn"
   };
 
   static navigationOptions = {
@@ -39,7 +39,9 @@ export default class SignIn extends Component {
       footer,
       formContainer,
       tabContainer,
-      tabWrapper
+      tabWrapper,
+      tabContent,
+      formStyling
     } = styles;
     const { isActive } = this.state;
 
@@ -56,11 +58,16 @@ export default class SignIn extends Component {
             onPress={() => this.changeTab("signIn", !isActive)}
           >
             <Text
-              style={
+              style={[
+                tabContent,
                 isActive === "signIn"
-                  ? { color: "black" }
+                  ? {
+                      color: "black",
+                      borderBottomColor: "red",
+                      borderBottomWidth: 4
+                    }
                   : { color: "#C5C5C5" }
-              }
+              ]}
             >
               Sign In
             </Text>
@@ -78,11 +85,16 @@ export default class SignIn extends Component {
             onPress={() => this.changeTab("signUp", !isActive)}
           >
             <Text
-              style={
+              style={[
+                tabContent,
                 isActive === "signUp"
-                  ? { color: "black" }
+                  ? {
+                      color: "black",
+                      borderBottomColor: "red",
+                      borderBottomWidth: 4
+                    }
                   : { color: "#C5C5C5" }
-              }
+              ]}
             >
               Sign Up
             </Text>
@@ -95,14 +107,19 @@ export default class SignIn extends Component {
               padding: 20,
               width: "40%",
               flex: 1,
-              justifyContent: "center",
+              justifyContent: "space-around",
               alignItems: "center"
             }}
           >
             {isActive === "signIn" && (
-              <Text>
-                SignInSignInSignInSignInSignInSignInSignInSignInSignInSignInSignInSignInSignInSignInSignInSignInSignInSignInSignInSignInSignInSignInSignInSignIn
-              </Text>
+              <View style={formContainer}>
+                <Item regular style={formStyling}>
+                  <Input placeholder="example@gmail.com" />
+                </Item>
+                <Item regular style={formStyling}>
+                  <Input placeholder="Underline Textbox" />
+                </Item>
+              </View>
             )}
 
             {isActive === "signUp" && (
