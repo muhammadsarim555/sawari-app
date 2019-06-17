@@ -7,8 +7,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "space-around",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    alignItems: "center"
   },
   welcome: {
     fontSize: 20,
@@ -21,24 +20,25 @@ export const styles = StyleSheet.create({
     marginBottom: 5
   },
   header: {
-    height: "40%",
+    height: "35%",
     width: "100%",
     backgroundColor: Colors.backgroundColor,
     justifyContent: "center"
   },
   body: {
-    height: "50%",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    height: "38%",
     width: "85%",
-    shadowColor: "#000",
+    shadowColor: "blue",
     shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.8,
+    shadowOpacity: 12,
     shadowRadius: 2,
-    elevation: 5,
-    borderRadius: 20,
-    backgroundColor: "yellow"
+    elevation: 3,
+    borderRadius: 10
   },
   footer: {
-    height: "30%",
+    height: "20%",
     width: "100%",
     justifyContent: "center"
   },
@@ -48,5 +48,22 @@ export const styles = StyleSheet.create({
   formContainer: {
     justifyContent: "space-evenly",
     height: "100%"
+  },
+  tabWrapper: {
+    backgroundColor: "white",
+    height: 70,
+    width: "85%",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    borderBottomWidth: 2,
+    borderColor: "#C5C5C5",
+    shadowColor: "blue",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 12,
+    shadowRadius: 2,
+    elevation: 3
   }
 });
