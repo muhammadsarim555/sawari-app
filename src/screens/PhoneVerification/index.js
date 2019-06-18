@@ -48,6 +48,7 @@ export default class PhoneVerification extends Component {
               justifyContent: "center",
               alignItems: "center"
             }}
+            autoFocus={false}
             size={30}
             inputPosition="left"
             onFulfill={code => this._onFulfill(code)}

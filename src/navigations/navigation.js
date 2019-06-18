@@ -4,14 +4,14 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import * as Screens from "../screens";
 
 const AppNavigator = createStackNavigator(
-  // {
-  //   SignIn: Screens.SignIn
-  // },
+  {
+    SignIn: Screens.SignIn
+  },
   {
     PhoneVerification: Screens.PhoneVerification
   },
   {
-    initialRouteName: "PhoneVerification"
+    initialRouteName: "SignIn"
   }
 );
 
