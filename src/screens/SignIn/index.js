@@ -44,12 +44,6 @@ export default class SignIn extends Component {
     header: null
   };
 
-  // componentDidMount() {
-  //   this.setState({
-  //     pickerData: this.phone.getPickerData()
-  //   });
-  // }
-
   onPressFlag() {
     this.myCountryPicker.open();
   }
@@ -235,6 +229,9 @@ export default class SignIn extends Component {
                     height: height * 0.08,
                     width: "100%"
                   }}
+                  onPress={() =>
+                    this.props.navigation.navigate("PhoneVerification")
+                  }
                 >
                   <Text
                     style={{

@@ -6,10 +6,11 @@ import * as Screens from "../screens";
 const AppNavigator = createStackNavigator(
   {
     SignIn: Screens.SignIn,
-    PhoneVerification: Screens.PhoneVerification
+    PhoneVerification: Screens.PhoneVerification,
+    Map: Screens.Map
   },
   {
-    initialRouteName: "PhoneVerification"
+    initialRouteName: "Map"
   }
 );
 

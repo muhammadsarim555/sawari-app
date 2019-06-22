@@ -66,6 +66,7 @@ export default class PhoneVerification extends Component {
                 height: height * 0.08,
                 width: "100%"
               }}
+              onPress={() => this.props.navigation.navigate("Map")}
             >
               <Text
                 style={{
