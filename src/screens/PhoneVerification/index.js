@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {
-  Platform,
+  Dimensions,
   StyleSheet,
   Text,
   View,
@@ -12,6 +12,9 @@ import Header from "../../component/Header";
 
 // PACKAGES
 import CodeInput from "react-native-confirmation-code-input";
+
+// CONSTANT
+const { width, height } = Dimensions.get("window");
 
 export default class PhoneVerification extends Component {
   state = {
@@ -60,17 +63,17 @@ export default class PhoneVerification extends Component {
                 backgroundColor: "#DDDDDD",
                 borderRadius: 10,
                 backgroundColor: "#FF4D4D",
-                padding: 20,
-                width: "40%"
+                height: height * 0.08,
+                width: "100%"
               }}
             >
               <Text
                 style={{
-                  fontSize: 18,
+                  fontSize: width * 0.05,
                   fontWeight: "bold",
-
-                  justifyContent: "center",
-                  color: "white"
+                  textAlign: "center",
+                  color: "white",
+                  lineHeight: height * 0.08
                 }}
               >
                 {" "}
@@ -96,7 +99,8 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     backgroundColor: "white",
-    marginBottom: "70%"
+    marginBottom: "70%",
+    width: "60%"
   },
   welcome: {
     fontSize: 20,

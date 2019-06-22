@@ -4,12 +4,16 @@ import {
   StyleSheet,
   Text,
   View,
-  StatusBar
+  StatusBar,
+  Dimensions
 } from "react-native";
 
 // FILES
 // PACKAGES
 import Icon from "react-native-vector-icons/Ionicons";
+
+// CONSTANT
+const { width, height } = Dimensions.get("window");
 
 export default class Header extends Component {
   static defaultProps = {
@@ -23,27 +27,32 @@ export default class Header extends Component {
     return (
       <View
         style={{
-          height: "20%",
+          height: "30%",
           width: "100%",
           backgroundColor: "#2B2B2B"
         }}
       >
         <StatusBar backgroundColor="#2B2B2B" barStyle="light-content" />
 
-        <View style={{ marginLeft: 30 }}>
+        <View style={{ marginLeft: width * 0.07 }}>
           {/* BACK BUTTON */}
           <TouchableOpacity style={{ color: "white", fontSize: 20 }}>
-            <Icon name="ios-arrow-back" color="white" size={35} />
+            <Icon
+              name="ios-arrow-back"
+              color="white"
+              size={35}
+              style={{ marginTop: height * 0.03 }}
+            />
           </TouchableOpacity>
 
           {/* TITLE */}
-          <View style={{ marginLeft: 5, marginTop: 20 }}>
+          <View style={{ marginLeft: width * 0.04, marginTop: height * 0.04 }}>
             <Text style={{ fontSize: 28, fontWeight: "bold", color: "white" }}>
               {title}
             </Text>
 
             {/* CONTENT */}
-            <View style={{ marginTop: 20 }}>
+            <View style={{ marginTop: height * 0.02 }}>
               <Text style={{ fontSize: 18, color: "white" }}>{content}</Text>
             </View>
           </View>

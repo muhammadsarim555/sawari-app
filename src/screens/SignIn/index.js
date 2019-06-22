@@ -226,9 +226,29 @@ export default class SignIn extends Component {
                   placeholder={"Add Your Text Here"}
                   onChangeText={text => this.setState({ text })}
                 />
-                <Button>
-                  <Text>Click Me!</Text>
-                </Button>
+
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: "#DDDDDD",
+                    borderRadius: 10,
+                    backgroundColor: "#FF4D4D",
+                    height: height * 0.08,
+                    width: "100%"
+                  }}
+                >
+                  <Text
+                    style={{
+                      fontSize: width * 0.05,
+                      fontWeight: "bold",
+                      textAlign: "center",
+                      color: "white",
+                      lineHeight: height * 0.08
+                    }}
+                  >
+                    {" "}
+                    Sign Up{" "}
+                  </Text>
+                </TouchableOpacity>
               </ScrollView>
             )}
 
