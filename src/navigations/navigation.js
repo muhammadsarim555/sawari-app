@@ -7,10 +7,11 @@ const AppNavigator = createStackNavigator(
   {
     SignIn: Screens.SignIn,
     PhoneVerification: Screens.PhoneVerification,
-    Map: Screens.Map
+    Map: Screens.ApplyBooking,
+    RequestBooking: Screens.RequestBooking
   },
   {
-    initialRouteName: "Map"
+    initialRouteName: "RequestBooking"
   }
 );
 
