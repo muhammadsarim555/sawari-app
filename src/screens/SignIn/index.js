@@ -12,7 +12,6 @@ import {
   TextInput,
   StyleSheet
 } from "react-native";
-const { width, height } = Dimensions.get("window");
 
 // PACKAGES
 import {
@@ -33,6 +32,7 @@ import Logo from "../../assets/logo/logo.png";
 import { Colors } from "../../constant/appColor";
 
 // CONSTANT
+const { width, height } = Dimensions.get("window");
 
 export default class SignIn extends Component {
   state = {
