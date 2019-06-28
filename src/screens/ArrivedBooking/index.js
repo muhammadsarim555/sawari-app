@@ -13,6 +13,7 @@ import {
 // PACKAGES
 import MapView from "react-native-maps";
 import Icon from "react-native-vector-icons/Ionicons";
+import RemoveIcon from "react-native-vector-icons/FontAwesome";
 
 import Dialog, {
   DialogFooter,
@@ -73,8 +74,8 @@ export default class ApplyBooking extends Component {
             elevation: 3
           }}
         >
-          <Icon
-            name="ios-arrow-back"
+          <RemoveIcon
+            name="remove"
             color="#909090"
             size={30}
             style={{
@@ -258,82 +259,29 @@ export default class ApplyBooking extends Component {
               </View>
             </View>
           </View>
-          {!isCancel ? (
-            <TouchableOpacity
-              style={{
-                backgroundColor: "#DDDDDD",
-                borderRadius: 10,
-                backgroundColor: "#FF4D4D",
-                height: height * 0.07,
-                width: "80%",
-                alignItems: "center",
-                justifyContent: "center",
-                alignSelf: "center",
-                marginBottom: height * 0.02
-              }}
-              onPress={() => {
-                this.setState({ visible: true });
-              }}
-            >
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  fontSize: width * 0.05,
-                  fontFamily: "Courier-Bold",
-                  color: "white"
-                }}
-              >
-                Confirm
-              </Text>
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity
-              style={{
-                backgroundColor: "#DDDDDD",
-                borderRadius: 10,
-                backgroundColor: "#232E42",
-                height: height * 0.07,
-                width: "80%",
-                alignItems: "center",
-                justifyContent: "center",
-                alignSelf: "center",
-                marginBottom: height * 0.02
-              }}
-              onPress={() => {
-                this.setState({ visible: true });
-              }}
-            >
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  fontSize: width * 0.05,
-                  fontFamily: "Courier-Bold",
-                  color: "white"
-                }}
-              >
-                Cancel Request
-              </Text>
-            </TouchableOpacity>
-          )}
-
-          <Dialog
-            visible={this.state.visible}
-            footer={
-              <DialogFooter>
-                <DialogButton
-                  text="CANCEL"
-                  onPress={() =>
-                    this.setState({ isCancel: true, visible: false })
-                  }
-                />
-                <DialogButton text="OK" onPress={() => {}} />
-              </DialogFooter>
-            }
+          <TouchableOpacity
+            style={{
+              borderRadius: 10,
+              backgroundColor: "#4252FF",
+              height: height * 0.07,
+              width: "80%",
+              alignItems: "center",
+              justifyContent: "center",
+              alignSelf: "center",
+              marginBottom: height * 0.02
+            }}
           >
-            <DialogContent>
-              <Text>Booking Successful</Text>
-            </DialogContent>
-          </Dialog>
+            <Text
+              style={{
+                fontWeight: "bold",
+                fontSize: width * 0.05,
+                fontFamily: "Courier-Bold",
+                color: "white"
+              }}
+            >
+              Arrived
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
