@@ -50,14 +50,14 @@ export default class ApplyBooking extends Component {
         <TouchableOpacity
           onPress={() => alert("chal rha ha")}
           style={{
-            justifyContent: "space-around",
+            justifyContent: "center",
             flexDirection: "row",
             marginLeft: width * 0.09,
             position: "absolute",
-            top: height * 0.009,
-            height: height * 0.05,
+            top: height * 0.1,
+            height: height * 0.07,
             backgroundColor: "#FFFFFF",
-            width: width * 0.09,
+            width: width * 0.12,
             borderRadius: 20,
             alignItems: "center",
             shadowOpacity: 0.75,
@@ -67,20 +67,20 @@ export default class ApplyBooking extends Component {
             elevation: 3
           }}
         >
-          <Icon name="ios-arrow-back" color="#E5E5E5" size={30} />
+          <Icon name="ios-arrow-back" color="#909090" size={30} />
         </TouchableOpacity>
 
         <View
           style={{
-            height: "30%",
-            justifyContent: "space-around"
+            height: "40%",
+            justifyContent: "space-between"
           }}
         >
           {/* SELECT CAR  */}
           <View
             style={{
               height: height * 0.0009,
-              height: "20%",
+              height: "40%",
               backgroundColor: "#F4F4F4",
               width: "100%",
               justifyContent: "space-evenly",
@@ -148,17 +148,18 @@ export default class ApplyBooking extends Component {
               backgroundColor: "#DDDDDD",
               borderRadius: 10,
               backgroundColor: "#FF4D4D",
-              height: height * 0.06,
+              height: height * 0.07,
               width: "80%",
               alignItems: "center",
               justifyContent: "center",
-              alignSelf: "center"
+              alignSelf: "center",
+              marginBottom: height * 0.02
             }}
           >
             <Text
               style={{
                 fontWeight: "bold",
-                fontSize: 18,
+                fontSize: width * 0.06,
                 fontFamily: "Courier-Bold",
                 color: "white"
               }}

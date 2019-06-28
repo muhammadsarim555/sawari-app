@@ -4,6 +4,7 @@ import Home from "./Home";
 import PhoneVerification from "./PhoneVerification";
 import ApplyBooking from "./ApplyBooking";
 import RequestBooking from "./RequestBooking";
+import ConfirmBooking from "./ConfirmBooking";
 
 export {
   Home,
@@ -11,5 +12,6 @@ export {
   SignUp,
   PhoneVerification,
   ApplyBooking,
-  RequestBooking
+  RequestBooking,
+  ConfirmBooking
 };
