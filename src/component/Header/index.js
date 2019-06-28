@@ -5,7 +5,8 @@ import {
   Text,
   View,
   StatusBar,
-  Dimensions
+  Dimensions,
+  Image
 } from "react-native";
 
 // FILES
@@ -46,10 +47,28 @@ export default class Header extends Component {
           </TouchableOpacity>
 
           {/* TITLE */}
-          <View style={{ marginLeft: width * 0.04, marginTop: height * 0.04 }}>
-            <Text style={{ fontSize: 28, fontWeight: "bold", color: "white" }}>
-              {title}
-            </Text>
+          <View style={{ marginTop: height * 0.04, width: "100%" }}>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-evenly" }}
+            >
+              <Text
+                style={{ fontSize: 24, fontWeight: "bold", color: "white" }}
+              >
+                {title}
+              </Text>
+              <Image
+                style={{
+                  width: 50,
+                  height: 50,
+                  borderRadius: 20,
+                  alignItems: "center"
+                }}
+                source={{
+                  uri:
+                    "https://facebook.github.io/react-native/docs/assets/favicon.png"
+                }}
+              />
+            </View>
 
             {/* CONTENT */}
             <View style={{ marginTop: height * 0.02 }}>
