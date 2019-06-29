@@ -7,6 +7,7 @@ import RequestBooking from "./RequestBooking";
 import ConfirmBooking from "./ConfirmBooking";
 import ArrivedBooking from "./ArrivedBooking";
 import Chat from "./Chat";
+import Rating from "./Rating";
 
 export {
   Home,
@@ -17,5 +18,6 @@ export {
   RequestBooking,
   ConfirmBooking,
   ArrivedBooking,
-  Chat
+  Chat,
+  Rating
 };

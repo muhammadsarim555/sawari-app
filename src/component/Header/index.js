@@ -47,28 +47,30 @@ export default class Header extends Component {
           </TouchableOpacity>
 
           {/* TITLE */}
-          <View style={{ marginTop: height * 0.04, width: "100%" }}>
-            <View
-              style={{ flexDirection: "row", justifyContent: "space-evenly" }}
-            >
-              <Text
-                style={{ fontSize: 24, fontWeight: "bold", color: "white" }}
-              >
-                {title}
-              </Text>
-              <Image
-                style={{
-                  width: 50,
-                  height: 50,
-                  borderRadius: 20,
-                  alignItems: "center"
-                }}
-                source={{
-                  uri:
-                    "https://facebook.github.io/react-native/docs/assets/favicon.png"
-                }}
-              />
-            </View>
+          <View
+            style={{
+              marginTop: height * 0.04,
+              width: "100%",
+              flexDirection: "row",
+              justifyContent: "space-evenly"
+            }}
+          >
+            <Text style={{ fontSize: 24, fontWeight: "bold", color: "white" }}>
+              {title}
+            </Text>
+            <Image
+              style={{
+                width: 50,
+                height: 50,
+                borderRadius: 20,
+                alignItems: "center"
+              }}
+              source={{
+                uri:
+                  "https://facebook.github.io/react-native/docs/assets/favicon.png"
+              }}
+              resizeMode="cover"
+            />
 
             {/* CONTENT */}
             <View style={{ marginTop: height * 0.02 }}>

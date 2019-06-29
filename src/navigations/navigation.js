@@ -11,10 +11,11 @@ const AppNavigator = createStackNavigator(
     RequestBooking: Screens.RequestBooking,
     ConfirmBooking: Screens.ConfirmBooking,
     ArrivedBooking: Screens.ArrivedBooking,
-    Chat: Screens.Chat
+    Chat: Screens.Chat,
+    Rating: Screens.Rating
   },
   {
-    initialRouteName: "Chat"
+    initialRouteName: "Rating"
   }
 );
 
