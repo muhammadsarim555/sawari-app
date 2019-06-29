@@ -1,12 +1,24 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  Dimensions
+} from "react-native";
 
 // PACKAGES
 import StarRating from "react-native-star-rating";
+import Textarea from "react-native-textarea";
+
+// CONSTANT
+const { width, height } = Dimensions.get("window");
 
 export default class Rating extends Component {
   state = {
-    starCount: 3.5
+    starCount: 3.5,
+    comment: ""
   };
 
   onStarRatingPress(rating) {
@@ -15,13 +27,19 @@ export default class Rating extends Component {
     });
   }
 
+  onChange = comment => {
+    this.setState({ comment });
+  };
+
   render() {
+    let { comment } = this.state;
+
     return (
       <View style={styles.container}>
         <View
           style={{
             width: "80%",
-            height: "60%",
+            height: "70%",
             backgroundColor: "white",
             alignSelf: "center",
             borderRadius: 20,
@@ -58,6 +76,47 @@ export default class Rating extends Component {
                 selectedStar={rating => this.onStarRatingPress(rating)}
                 fullStarColor={"yellow"}
               />
+              <Textarea
+                containerStyle={{
+                  backgroundColor: "#E5E5E5",
+                  borderRadius: 10,
+                  marginTop: 20,
+                  height: 150
+                }}
+                style={styles.textarea}
+                onChangeText={this.onChange}
+                defaultValue={comment}
+                maxLength={120}
+                placeholder={"Additional Comments..."}
+                placeholderTextColor={"#c7c7c7"}
+                underlineColorAndroid={"transparent"}
+              />
+              <TouchableOpacity
+                style={{
+                  backgroundColor: "#DDDDDD",
+                  borderRadius: 10,
+                  backgroundColor: "#FF4D4D",
+                  height: height * 0.06,
+                  width: "100%",
+                  marginTop: 10
+                }}
+                onPress={() =>
+                  this.props.navigation.navigate("PhoneVerification")
+                }
+              >
+                <Text
+                  style={{
+                    fontSize: width * 0.03,
+                    fontWeight: "bold",
+                    textAlign: "center",
+                    color: "white",
+                    lineHeight: height * 0.06
+                  }}
+                >
+                  {" "}
+                  Submit Review{" "}
+                </Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -97,8 +156,8 @@ const styles = StyleSheet.create({
   },
   carName: {
     fontSize: 18,
-    color: "#FFFFFF",
-    fontWeight: "300"
+    fontWeight: "300",
+    alignSelf: "center"
   },
   body: {
     marginTop: 40
@@ -125,7 +184,7 @@ const styles = StyleSheet.create({
     color: "#696969",
     marginTop: 10,
     fontWeight: "600",
-    marginTop: 30,
+    marginTop: 20,
     textAlign: "center"
   },
   tipDescription: {
