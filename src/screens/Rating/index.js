@@ -11,6 +11,7 @@ import {
 // PACKAGES
 import StarRating from "react-native-star-rating";
 import Textarea from "react-native-textarea";
+import BackIcon from "react-native-vector-icons/Ionicons";
 
 // CONSTANT
 const { width, height } = Dimensions.get("window");
@@ -19,6 +20,25 @@ export default class Rating extends Component {
   state = {
     starCount: 3.5,
     comment: ""
+  };
+
+  static navigationOptions = {
+    headerTitleStyle: {
+      textAlign: "center",
+      alignSelf: "center",
+      flex: 1,
+      color: "white"
+    },
+    title: "Ratings",
+    headerStyle: {
+      backgroundColor: "#2B2B2B"
+    },
+    headerLeft: (
+      <TouchableOpacity style={{ paddingLeft: 20 }}>
+        <BackIcon name="ios-arrow-back" color="white" size={25} />
+      </TouchableOpacity>
+    ),
+    headerRight: <View style={{ paddingRight: 20 }} />
   };
 
   onStarRatingPress(rating) {
@@ -105,7 +125,7 @@ export default class Rating extends Component {
               >
                 <Text
                   style={{
-                    fontSize: width * 0.03,
+                    fontSize: width * 0.04,
                     fontWeight: "bold",
                     textAlign: "center",
                     color: "white",
@@ -129,7 +149,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "blue"
+    backgroundColor: "#2B2B2B"
   },
   header: {
     backgroundColor: "red",

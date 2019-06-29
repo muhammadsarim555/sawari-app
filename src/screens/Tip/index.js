@@ -33,7 +33,8 @@ export default class Tip extends Component {
       <TouchableOpacity style={{ paddingLeft: 20 }}>
         <BackIcon name="ios-arrow-back" color="white" size={25} />
       </TouchableOpacity>
-    )
+    ),
+    headerRight: <View style={{ paddingRight: 20 }} />
   };
 
   onStarRatingPress(rating) {
