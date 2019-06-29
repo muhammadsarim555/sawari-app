@@ -93,9 +93,8 @@ export default class Rating extends Component {
               />
               <TouchableOpacity
                 style={{
-                  backgroundColor: "#DDDDDD",
                   borderRadius: 10,
-                  backgroundColor: "#FF4D4D",
+                  backgroundColor: "#4252FF",
                   height: height * 0.06,
                   width: "100%",
                   marginTop: 10
