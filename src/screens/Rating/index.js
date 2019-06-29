@@ -39,25 +39,24 @@ export default class Rating extends Component {
             }}
           />
           <View style={styles.body}>
-            <View style={styles.bodyContent}>
-              <Text style={styles.name}>John Doe</Text>
-              <Text style={styles.carName}>Car Name</Text>
+            <Text style={styles.name}>Muhammad Sarim</Text>
+            <Text style={styles.carName}>Car Name</Text>
 
-              <Text style={styles.tip}>How was your tip?</Text>
-              <Text style={styles.tipDescription}>
-                Your feedback will help improve our driving experience
-              </Text>
-
+            <Text style={styles.tip}>How was your tip?</Text>
+            <Text style={styles.tipDescription}>
+              Your feedback will help improve our driving experience
+            </Text>
+            <View style={{ width: "90%", alignSelf: "center" }}>
               <StarRating
                 disabled={false}
                 emptyStar={"ios-star-outline"}
                 fullStar={"ios-star"}
                 halfStar={"ios-star-half"}
                 iconSet={"Ionicons"}
-                maxStars={7}
+                maxStars={5}
                 rating={this.state.starCount}
-                selectedStar={rating => alert("chal rha ha")}
-                fullStarColor={"red"}
+                selectedStar={rating => this.onStarRatingPress(rating)}
+                fullStarColor={"yellow"}
               />
             </View>
           </View>
@@ -93,7 +92,8 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 22,
     color: "#FFFFFF",
-    fontWeight: "600"
+    fontWeight: "600",
+    alignSelf: "center"
   },
   carName: {
     fontSize: 18,
@@ -111,7 +111,9 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 28,
     color: "#696969",
-    fontWeight: "600"
+    fontWeight: "600",
+    alignSelf: "center",
+    marginTop: 20
   },
   info: {
     fontSize: 16,
