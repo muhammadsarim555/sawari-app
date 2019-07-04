@@ -11,21 +11,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "red"
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center"
-  },
-  instructions: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5
-  },
-  header: {
-    height: "49%",
-    width: "100%",
-    backgroundColor: Colors.backgroundColor,
-    justifyContent: "center"
-  },
+
   body: {
     flexDirection: "row",
     justifyContent: "space-around",
@@ -40,52 +26,6 @@ export const styles = StyleSheet.create({
     elevation: 3,
     borderRadius: 10
   },
-  footer: {
-    height: "10%",
-    width: "100%",
-    justifyContent: "center"
-  },
-  tabContainer: {
-    justifyContent: "center"
-  },
-  formContainer: {
-    padding: height * 0.04,
-    width: "100%",
-    flex: 1,
-    justifyContent: "space-between",
-    alignItems: "center"
-  },
-  formStyling: {
-    flex: 1,
-    justifyContent: "space-between",
-    alignItems: "center",
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: "gray"
-  },
-
-  // using
-  tabWrapper: {
-    backgroundColor: "white",
-    height: height * 0.1,
-    width: "85%",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    alignSelf: "center",
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    borderBottomWidth: 2,
-    borderColor: "#C5C5C5",
-    shadowColor: "blue",
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 12,
-    shadowRadius: 2,
-    elevation: 3
-  },
-  tabContent: { fontSize: 18, fontWeight: "bold" },
-
-  //
   header: {
     height: "40%",
     backgroundColor: Colors.backgroundColor,
@@ -170,13 +110,5 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     backgroundColor: "#fff"
-  },
-  box1: {
-    height: 200,
-    backgroundColor: "blue"
-  },
-  box2: {
-    height: 200,
-    backgroundColor: "purple"
   }
 });

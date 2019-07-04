@@ -1,20 +1,13 @@
 import React, { Component } from "react";
-import {
-  Dimensions,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity
-} from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 
 // FILES
 import Header from "../../component/Header";
+import { styles } from "./style";
 
 // PACKAGES
 import CodeInput from "react-native-confirmation-code-input";
-
-// CONSTANT
-const { width, height } = Dimensions.get("window");
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default class PhoneVerification extends Component {
   state = {
@@ -32,10 +25,16 @@ export default class PhoneVerification extends Component {
   };
 
   render() {
-    const { container, childContainer } = styles;
+    const {
+      container,
+      childContainer,
+      verifyButton,
+      verifyButtonText,
+      otpInput
+    } = styles;
 
     return (
-      <View>
+      <KeyboardAwareScrollView extraHeight={0} extraScrollHeight={0}>
         <Header title="Phone Verification" content="Enter your OTP code here" />
         <View style={container}>
           <CodeInput
@@ -45,12 +44,7 @@ export default class PhoneVerification extends Component {
             space={5}
             activeColor="black"
             inactiveColor="black"
-            codeInputStyle={{
-              borderBottomWidth: 4,
-              fontSize: 18,
-              justifyContent: "center",
-              alignItems: "center"
-            }}
+            codeInputStyle={otpInput}
             autoFocus={false}
             size={30}
             inputPosition="left"
@@ -59,67 +53,14 @@ export default class PhoneVerification extends Component {
 
           <View style={childContainer}>
             <TouchableOpacity
-              style={{
-                backgroundColor: "#DDDDDD",
-                borderRadius: 10,
-                backgroundColor: "#FF4D4D",
-                height: height * 0.08,
-                width: "100%"
-              }}
+              style={verifyButton}
               onPress={() => this.props.navigation.navigate("Map")}
             >
-              <Text
-                style={{
-                  fontSize: width * 0.05,
-                  fontWeight: "bold",
-                  textAlign: "center",
-                  color: "white",
-                  lineHeight: height * 0.08
-                }}
-              >
-                {" "}
-                Verify Now{" "}
-              </Text>
+              <Text style={verifyButtonText}> Verify Now </Text>
             </TouchableOpacity>
           </View>
         </View>
-      </View>
+      </KeyboardAwareScrollView>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    height: "80%",
-    justifyContent: "flex-end",
-    alignItems: "center",
-    backgroundColor: "white"
-  },
-  childContainer: {
-    flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "center",
-    backgroundColor: "white",
-    marginBottom: "70%",
-    width: "60%"
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  },
-  instructions: {
-    fontSize: 22,
-    fontWeight: "500",
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 20
-  },
-  textInputContainer: {
-    marginBottom: 20
-  },
-  roundedTextInput: {
-    borderRadius: 10,
-    borderWidth: 4
-  }
-});

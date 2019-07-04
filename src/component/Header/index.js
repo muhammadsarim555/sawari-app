@@ -28,7 +28,7 @@ export default class Header extends Component {
     return (
       <View
         style={{
-          height: "30%",
+          height: "35%",
           width: "100%",
           backgroundColor: "#2B2B2B"
         }}
@@ -50,27 +50,12 @@ export default class Header extends Component {
           <View
             style={{
               marginTop: height * 0.04,
-              width: "100%",
-              flexDirection: "row",
-              justifyContent: "space-evenly"
+              width: "100%"
             }}
           >
             <Text style={{ fontSize: 24, fontWeight: "bold", color: "white" }}>
               {title}
             </Text>
-            <Image
-              style={{
-                width: 50,
-                height: 50,
-                borderRadius: 20,
-                alignItems: "center"
-              }}
-              source={{
-                uri:
-                  "https://facebook.github.io/react-native/docs/assets/favicon.png"
-              }}
-              resizeMode="cover"
-            />
 
             {/* CONTENT */}
             <View style={{ marginTop: height * 0.02 }}>

@@ -14,15 +14,7 @@ import {
 } from "react-native";
 
 // PACKAGES
-import {
-  Input,
-  Tab,
-  Tabs,
-  TabHeading,
-  Container,
-  Item,
-  Button
-} from "native-base";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import PhoneInput from "react-native-phone-input";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 
@@ -69,12 +61,13 @@ export default class SignIn extends Component {
       tabsBorder,
       contentContainer,
       formButton,
-      formButtonText
+      formButtonText,
+      root
     } = styles;
     const { isActive } = this.state;
 
     return (
-      <View style={styles.root}>
+      <View style={root}>
         <ScrollView
           contentContainerStyle={{
             flex: 1
@@ -137,11 +130,19 @@ export default class SignIn extends Component {
                   placeholder={"example@gmail.com"}
                   onChangeText={text => this.setState({ text })}
                 />
-                <TextInput
-                  style={textInput}
-                  placeholder={"Add Your Text Here"}
-                  onChangeText={text => this.setState({ text })}
-                />
+
+                <View style={textInput}>
+                  <PhoneInput
+                    ref="phone"
+                    placeholder="2142662"
+                    style={{
+                      marginTop: 10,
+                      marginLeft: 5,
+                      marginRight: 20
+                    }}
+                    textStyle={{ marginLeft: 10, marginRight: 10 }}
+                  />
+                </View>
 
                 <TouchableOpacity
                   style={formButton}
