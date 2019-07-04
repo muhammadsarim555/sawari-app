@@ -16,7 +16,7 @@ const AppNavigator = createStackNavigator(
     Tip: Screens.Tip
   },
   {
-    initialRouteName: "SignIn"
+    initialRouteName: "ConfirmBooking"
   }
 );
 

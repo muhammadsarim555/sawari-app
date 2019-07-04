@@ -21,6 +21,7 @@ import Dialog, {
 } from "react-native-popup-dialog";
 
 // FILES
+import { styles } from "./style";
 
 // CONSTANT
 const { width, height } = Dimensions.get("window");
@@ -38,6 +39,16 @@ export default class ApplyBooking extends Component {
 
   render() {
     const { searchText, visible, isCancel } = this.state;
+    const {
+      backButton,
+      footerContainer1,
+      directionColumn,
+      directionRow,
+      recommendation,
+      footerContainer3,
+      confirmButton,
+      confirmButtonText
+    } = styles;
 
     return (
       <View style={{ flex: 1 }}>
@@ -55,34 +66,9 @@ export default class ApplyBooking extends Component {
 
         <TouchableOpacity
           onPress={() => alert("chal rha ha")}
-          style={{
-            justifyContent: "center",
-            flexDirection: "row",
-            marginLeft: width * 0.09,
-            position: "absolute",
-            top: height * 0.1,
-            height: height * 0.08,
-            backgroundColor: "#FFFFFF",
-            width: width * 0.13,
-            borderRadius: 20,
-            alignItems: "center",
-            shadowOpacity: 0.75,
-            shadowRadius: 5,
-            shadowColor: "red",
-            shadowOffset: { height: 0, width: 0 },
-            elevation: 3
-          }}
+          style={backButton}
         >
-          <Icon
-            name="ios-arrow-back"
-            color="#909090"
-            size={30}
-            style={{
-              textAlign: "center",
-              alignSelf: "center",
-              justifyContent: "center"
-            }}
-          />
+          <Icon name="ios-arrow-back" color="#909090" size={30} />
         </TouchableOpacity>
 
         <View
@@ -92,19 +78,10 @@ export default class ApplyBooking extends Component {
           }}
         >
           {/*PROFILE IMAGE WITH CALL & SMS  */}
-          <View
-            style={{
-              height: "20%",
-              backgroundColor: "#F4F4F4",
-              width: "100%",
-              justifyContent: "space-evenly",
-              alignItems: "center",
-              flexDirection: "row"
-            }}
-          >
+          <View style={footerContainer1}>
             {/* TYPE */}
 
-            <View style={{ flexDirection: "row" }}>
+            <View style={directionRow}>
               <Image
                 style={{
                   width: 40,
@@ -119,15 +96,15 @@ export default class ApplyBooking extends Component {
               />
 
               {/* CONTENT */}
-              <View style={{ flexDirection: "column" }}>
+              <View style={directionColumn}>
                 <Text>Just go</Text>
                 <Text>Nearby you</Text>
               </View>
             </View>
 
             {/* PRICE */}
-            <View style={{ flexDirection: "row" }}>
-              <View style={{ flexDirection: "column" }}>
+            <View style={directionRow}>
+              <View style={directionColumn}>
                 <Image
                   style={{
                     width: 40,
@@ -141,7 +118,7 @@ export default class ApplyBooking extends Component {
                   }}
                 />
               </View>
-              <View style={{ flexDirection: "column" }}>
+              <View style={directionColumn}>
                 <Image
                   style={{
                     width: 40,
@@ -158,15 +135,7 @@ export default class ApplyBooking extends Component {
           </View>
 
           {/* RECOMMENDATION */}
-          <View
-            style={{
-              height: "10%",
-              width: "100%",
-              justifyContent: "space-evenly",
-              alignItems: "center",
-              flexDirection: "row"
-            }}
-          >
+          <View style={recommendation}>
             <View
               style={{
                 alignItems: "center",
@@ -209,23 +178,15 @@ export default class ApplyBooking extends Component {
               />
             </View>
 
-            <View style={{ flexDirection: "row" }}>
+            <View style={directionRow}>
               <Text>45 Recommended</Text>
             </View>
           </View>
 
-          <View
-            style={{
-              height: "20%",
-              width: "100%",
-              justifyContent: "space-evenly",
-              alignItems: "center",
-              flexDirection: "row"
-            }}
-          >
+          <View style={footerContainer3}>
             {/* TYPE */}
 
-            <View style={{ flexDirection: "row" }}>
+            <View style={directionRow}>
               <Image
                 style={{
                   width: 40,
@@ -240,19 +201,19 @@ export default class ApplyBooking extends Component {
               />
 
               {/* CONTENT */}
-              <View style={{ flexDirection: "column" }}>
+              <View style={directionColumn}>
                 <Text>Just go</Text>
                 <Text>Nearby you</Text>
               </View>
             </View>
 
             {/* PRICE */}
-            <View style={{ flexDirection: "row" }}>
+            <View style={directionRow}>
               <View style={{ flexDirection: "column", marginRight: 20 }}>
                 <Text>Speed</Text>
                 <Text>88</Text>
               </View>
-              <View style={{ flexDirection: "column" }}>
+              <View style={directionColumn}>
                 <Text>Time</Text>
                 <Text>88</Text>
               </View>
@@ -260,36 +221,16 @@ export default class ApplyBooking extends Component {
           </View>
           {!isCancel ? (
             <TouchableOpacity
-              style={{
-                backgroundColor: "#DDDDDD",
-                borderRadius: 10,
-                backgroundColor: "#FF4D4D",
-                height: height * 0.07,
-                width: "80%",
-                alignItems: "center",
-                justifyContent: "center",
-                alignSelf: "center",
-                marginBottom: height * 0.02
-              }}
+              style={confirmButton}
               onPress={() => {
                 this.setState({ visible: true });
               }}
             >
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  fontSize: width * 0.05,
-                  fontFamily: "Courier-Bold",
-                  color: "white"
-                }}
-              >
-                Confirm
-              </Text>
+              <Text style={confirmButtonText}>Confirm</Text>
             </TouchableOpacity>
           ) : (
             <TouchableOpacity
               style={{
-                backgroundColor: "#DDDDDD",
                 borderRadius: 10,
                 backgroundColor: "#232E42",
                 height: height * 0.07,
@@ -303,16 +244,7 @@ export default class ApplyBooking extends Component {
                 this.setState({ visible: true });
               }}
             >
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  fontSize: width * 0.05,
-                  fontFamily: "Courier-Bold",
-                  color: "white"
-                }}
-              >
-                Cancel Request
-              </Text>
+              <Text style={confirmButtonText}>Cancel Request</Text>
             </TouchableOpacity>
           )}
 
@@ -339,22 +271,3 @@ export default class ApplyBooking extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  },
-  instructions: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5
-  }
-});

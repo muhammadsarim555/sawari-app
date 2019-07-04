@@ -15,9 +15,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import RemoveIcon from "react-native-vector-icons/AntDesign";
 
 // FILES
-
-// CONSTANT
-const { width, height } = Dimensions.get("window");
+import { styles } from "./style";
 
 export default class ApplyBooking extends Component {
   state = {
@@ -30,6 +28,13 @@ export default class ApplyBooking extends Component {
 
   render() {
     const { searchText } = this.state;
+    const {
+      backIcon,
+      searchBar,
+      searchBarInput,
+      applyButton,
+      applyButtonText
+    } = styles;
 
     return (
       <View style={{ flex: 1 }}>
@@ -45,50 +50,16 @@ export default class ApplyBooking extends Component {
           }}
         />
 
-        <View
-          style={{
-            height: 40,
-            borderRadius: 20,
-            width: "90%",
-            position: "absolute",
-            top: height * 0.009,
-            alignSelf: "center",
-            justifyContent: "center",
-            backgroundColor: "white",
-            shadowOpacity: 0.75,
-            shadowRadius: 5,
-            shadowColor: "red",
-            shadowOffset: { height: 0, width: 0 },
-            elevation: 3,
-            flexDirection: "row"
-          }}
-        >
+        <View style={searchBar}>
           <TouchableOpacity
             onPress={() => alert("chal rha ha")}
-            style={{
-              alignSelf: "center",
-              flexDirection: "row",
-              marginRight: width * 0.07
-            }}
+            style={backIcon}
           >
-            <Icon
-              name="ios-arrow-back"
-              color="#D3D3D3"
-              size={30}
-              // style={{ marginHorizontal: width * 0.01 }}
-            />
+            <Icon name="ios-arrow-back" color="#D3D3D3" size={30} />
           </TouchableOpacity>
 
           <TextInput
-            style={{
-              height: 40,
-              borderRadius: 70,
-              alignSelf: "center",
-              backgroundColor: "white",
-              color: "black",
-              width: "82%",
-              textAlign: "center"
-            }}
+            style={searchBarInput}
             value={searchText}
             placeholder={"Search Location"}
             onChangeText={searchText => this.setState({ searchText })}
@@ -101,58 +72,17 @@ export default class ApplyBooking extends Component {
                 flexDirection: "row"
               }}
             >
-              <RemoveIcon
-                name="closecircle"
-                color="#D3D3D3"
-                size={20}
-                // style={{ marginHorizontal: width * 0.01 }}
-              />
+              <RemoveIcon name="closecircle" color="#D3D3D3" size={20} />
             </TouchableOpacity>
           ) : (
-            <View style={{ width: "4.3%" }} />
+            <View style={{ width: "4.4%" }} />
           )}
         </View>
 
-        <TouchableOpacity
-          style={{
-            width: "100%",
-            height: "10%",
-            backgroundColor: "#367CFF",
-            justifyContent: "center",
-            alignItems: "center"
-          }}
-        >
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: 20,
-              fontFamily: "Courier-Bold",
-              color: "white"
-            }}
-          >
-            Apply
-          </Text>
+        <TouchableOpacity style={applyButton}>
+          <Text style={applyButtonText}>Apply</Text>
         </TouchableOpacity>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  },
-  instructions: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5
-  }
-});
