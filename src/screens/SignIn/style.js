@@ -83,5 +83,27 @@ export const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 3
   },
-  tabContent: { fontSize: 18, fontWeight: "bold" }
+  tabContent: { fontSize: 18, fontWeight: "bold" },
+  tabContainerStyle1: { fontSize: width * 0.06, fontWeight: "bold" },
+  textInput: {
+    height: 40,
+    borderColor: "gray",
+    borderWidth: 1,
+    borderRadius: 10,
+    width: "90%",
+    alignSelf: "center"
+  },
+  root: {
+    flex: 1,
+    flexDirection: "column",
+    backgroundColor: "#fff"
+  },
+  box1: {
+    height: 200,
+    backgroundColor: "blue"
+  },
+  box2: {
+    height: 200,
+    backgroundColor: "purple"
+  }
 });

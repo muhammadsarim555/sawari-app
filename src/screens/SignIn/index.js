@@ -24,10 +24,11 @@ import {
   Button
 } from "native-base";
 import PhoneInput from "react-native-phone-input";
+import Swipeable from "react-native-gesture-handler/Swipeable";
 
 // FILES
 import Home from "../Home";
-// import { styles } from "./style";
+import { styles } from "./style";
 import Logo from "../../assets/logo/logo.png";
 import { Colors } from "../../constant/appColor";
 
@@ -57,6 +58,14 @@ export default class SignIn extends Component {
     this.setState({ isActive: name });
   };
 
+  renderLeftActions = (progress, dragX) => {
+    // const trans = dragX.interpolate({
+    //   inputRange: [0, 50, 100, 101],
+    //   outputRange: [-20, 0, 0, 1]
+    // });
+    alert("sdfa");
+  };
+
   render() {
     // const {
     //   header,
@@ -71,6 +80,7 @@ export default class SignIn extends Component {
     //   isKeyboard,
     //   formStyling
     // } = styles;
+    const { tabContainerStyle1, textInput } = styles;
     const { isActive } = this.state;
 
     return (
@@ -93,7 +103,7 @@ export default class SignIn extends Component {
             <Image
               source={{
                 uri:
-                  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAMAAAAPdrEwAAAAolBMVEUAAADlPTLpPjNSFRHcOjBOFRHwQDTtPzTUOC6qLST////YOS9ZWFgLAABWFxI4DwyfKiLBMypAEQ2dmpmFg4NIEw8cBwb29fWPJh/CJBfLNiz7QzcMFBRqaWmnpKPKysqmrK3i4eFEQkG6uLhmGhXt6ekmJiWQjY3T09NycXFzHhmzMCdNTEzHwsIaGRl8e3uVFAZ9IRsjCQcpCggRHh46Nzf8UsULAAACDElEQVRYhe3YXXOiMBQG4JNTTAIon1VYu8VFEN3S2qrd///XlgTdnenCTmdyuOhM3gujXjweTxKJANjY2NjY2HwqSXA3DRxIjoLnE8j1gxvC4gljcjkUXb1BAmckrzvyIXQ4j+HEqOl1DjEyxk/wsCSmZQ4OYwxdejpur3TIQ2K65gtf0VFLv0RiX1XNHPKilY2KZgG9DLdptPQXpUMh1sGVjgJHrOnW351gKOqebtWDhNXpREUzdDTN9OLmSyGEcyaimQg1rYPr7hNEdImddkVBL33219Yz6iAKSU3r6G8hzH5iR+i+/hkBHU5GM4GT0cOxtKW/Kj0b3CwkdDIdvRqXGRoeLuV/yr6Y0dEojb6ZDCEfo0VkSN+OkgO0YT/G14h50QD5YEuMO63TDuxIZDTHqPafutFJSOSuJx8ujiJeEMndXMYcrzoilzUZrHFXdgcmgSjdCe4xnGdBMDNezMP5/mGky7zsx6Ig4S76PkWSvx+hgV/d06bp6eZoSgd609XfflSlt91BU2ZZWRXwmGXexpSWV9q7Vw3JUoC9l269OcCLof2H3qheP+puH9Iq2xwOG29rRt8aUih6X6lXRbop7ru8Nkb0Wah/RO1bTz9n6r1dWrx0Q2Pa7JzVictA0zs4lPP5wSsgq7Y/Vd/N8iT9dgHpHuC5q7Uod8V+D8dqV76ayjY2NjY2n89vPzEhhROK52wAAAAASUVORK5CYII="
+                  "data:image/png;base64,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"
               }}
               style={{
                 width: 100,
@@ -104,6 +114,9 @@ export default class SignIn extends Component {
                 borderRadius: 10
               }}
             />
+            <Swipeable renderLeftActions={() => this.renderLeftActions}>
+              <Text>"hello"</Text>
+            </Swipeable>
           </View>
 
           {/* CARD WRAPPER WITH TABS */}
@@ -133,7 +146,7 @@ export default class SignIn extends Component {
             >
               <Text
                 style={[
-                  { fontSize: 18, fontWeight: "bold" },
+                  tabContainerStyle1,
                   isActive === "signUp"
                     ? {
                         color: "black",
@@ -143,7 +156,7 @@ export default class SignIn extends Component {
                     : { color: "#C5C5C5" }
                 ]}
               >
-                Sign Up
+                Sign up
               </Text>
             </TouchableWithoutFeedback>
 
@@ -160,7 +173,7 @@ export default class SignIn extends Component {
             >
               <Text
                 style={[
-                  { fontSize: 18, fontWeight: "bold" },
+                  { fontSize: width * 0.06, fontWeight: "bold" },
                   isActive === "signIn"
                     ? {
                         color: "black",
@@ -170,7 +183,7 @@ export default class SignIn extends Component {
                     : { color: "#C5C5C5" }
                 ]}
               >
-                Sign In
+                Sign in
               </Text>
             </TouchableWithoutFeedback>
           </View>
@@ -201,22 +214,12 @@ export default class SignIn extends Component {
                 automaticallyAdjustContentInsets={false}
               >
                 <TextInput
-                  style={{
-                    height: 40,
-                    borderColor: "gray",
-                    borderWidth: 1,
-                    borderRadius: 10
-                  }}
+                  style={textInput}
                   placeholder={"example@gmail.com"}
                   onChangeText={text => this.setState({ text })}
                 />
                 <TextInput
-                  style={{
-                    height: 40,
-                    borderColor: "gray",
-                    borderWidth: 1,
-                    borderRadius: 10
-                  }}
+                  style={textInput}
                   placeholder={"Add Your Text Here"}
                   onChangeText={text => this.setState({ text })}
                 />
@@ -227,7 +230,8 @@ export default class SignIn extends Component {
                     borderRadius: 10,
                     backgroundColor: "#FF4D4D",
                     height: height * 0.08,
-                    width: "100%"
+                    width: "90%",
+                    alignSelf: "center"
                   }}
                   onPress={() =>
                     this.props.navigation.navigate("PhoneVerification")
@@ -259,19 +263,38 @@ export default class SignIn extends Component {
                 automaticallyAdjustContentInsets={false}
               >
                 <TextInput
-                  style={{
-                    height: 40,
-                    borderColor: "gray",
-                    borderWidth: 1,
-                    borderRadius: 10
-                  }}
-                  placeholder={"0318282"}
+                  style={textInput}
+                  placeholder={"0317-2142662"}
+                  keyboardType={"numeric"}
                   onChangeText={text => this.setState({ text })}
                 />
 
-                <Button>
-                  <Text>Click Me!</Text>
-                </Button>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: "#DDDDDD",
+                    borderRadius: 10,
+                    backgroundColor: "#FF4D4D",
+                    height: height * 0.08,
+                    width: "90%",
+                    alignSelf: "center"
+                  }}
+                  onPress={() =>
+                    this.props.navigation.navigate("PhoneVerification")
+                  }
+                >
+                  <Text
+                    style={{
+                      fontSize: width * 0.05,
+                      fontWeight: "bold",
+                      textAlign: "center",
+                      color: "white",
+                      lineHeight: height * 0.08
+                    }}
+                  >
+                    {" "}
+                    Sign in{" "}
+                  </Text>
+                </TouchableOpacity>
               </ScrollView>
             )}
           </View>
@@ -280,19 +303,3 @@ export default class SignIn extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    flexDirection: "column",
-    backgroundColor: "#fff"
-  },
-  box1: {
-    height: 200,
-    backgroundColor: "blue"
-  },
-  box2: {
-    height: 200,
-    backgroundColor: "purple"
-  }
-});
