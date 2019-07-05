@@ -28,7 +28,7 @@ export default class Header extends Component {
     return (
       <View
         style={{
-          height: "35%",
+          height: "auto",
           width: "100%",
           backgroundColor: "#2B2B2B"
         }}
