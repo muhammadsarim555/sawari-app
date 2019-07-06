@@ -14,7 +14,7 @@ import StarRating from "react-native-star-rating";
 import Textarea from "react-native-textarea";
 import BackIcon from "react-native-vector-icons/Ionicons";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { Header } from "react-navigation";
+import { Header, withNavigation } from "react-navigation";
 
 // FILES
 import { styles } from "./style";
@@ -23,13 +23,13 @@ import { styles } from "./style";
 const { width, height } = Dimensions.get("window");
 const headerHeight = Header.HEIGHT;
 
-export default class Rating extends Component {
+class Rating extends Component {
   state = {
     starCount: 3.5,
     comment: ""
   };
 
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     headerTitleStyle: {
       textAlign: "center",
       alignSelf: "center",
@@ -41,12 +41,17 @@ export default class Rating extends Component {
       backgroundColor: "#2B2B2B"
     },
     headerLeft: (
-      <TouchableOpacity style={{ paddingLeft: 20 }}>
+      <TouchableOpacity
+        style={{ paddingLeft: 20 }}
+        onPress={() => {
+          navigation.goBack();
+        }}
+      >
         <BackIcon name="ios-arrow-back" color="white" size={25} />
       </TouchableOpacity>
     ),
     headerRight: <View style={{ paddingRight: 20 }} />
-  };
+  });
 
   onStarRatingPress(rating) {
     this.setState({
@@ -121,9 +126,7 @@ export default class Rating extends Component {
                   />
                   <TouchableOpacity
                     style={submitButton}
-                    onPress={() =>
-                      this.props.navigation.navigate("PhoneVerification")
-                    }
+                    onPress={() => this.props.navigation.navigate("Tip")}
                   >
                     <Text style={submitButtonText}> Submit Review </Text>
                   </TouchableOpacity>
@@ -136,3 +139,5 @@ export default class Rating extends Component {
     );
   }
 }
+
+export default withNavigation(Rating);

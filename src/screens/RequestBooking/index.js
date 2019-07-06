@@ -51,7 +51,7 @@ export default class ApplyBooking extends Component {
         />
 
         <TouchableOpacity
-          onPress={() => alert("chal rha ha")}
+          onPress={() => this.props.navigation.goBack()}
           style={backButton}
         >
           <Icon name="ios-arrow-back" color={grayColor} size={30} />
@@ -98,7 +98,10 @@ export default class ApplyBooking extends Component {
             </View>
           </View>
 
-          <TouchableOpacity style={requestButton}>
+          <TouchableOpacity
+            style={requestButton}
+            onPress={() => this.props.navigation.navigate("ConfirmBooking")}
+          >
             <Text style={requestButtonText}>Request</Text>
           </TouchableOpacity>
         </View>

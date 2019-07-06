@@ -86,7 +86,8 @@ export default class Chat extends Component {
           type: "in",
           message: "Lorem ipsum dolor sit a met"
         }
-      ]
+      ],
+      isFocus: false
     };
   }
 
@@ -109,11 +110,15 @@ export default class Chat extends Component {
       btnSend,
       iconSend
     } = styles;
-    const { data } = this.state;
+    const { data, isFocus } = this.state;
 
     return (
       <View style={container}>
-        <CustomHeader title="Muhammad Sarim" />
+        {isFocus ? (
+          <CustomHeader title="Muhammad Sarim" HeaderHeight="15%" />
+        ) : (
+          <CustomHeader title="Muhammad Sarim" />
+        )}
         <FlatList
           style={list}
           data={data}
@@ -143,6 +148,8 @@ export default class Chat extends Component {
               placeholder="Write a message..."
               underlineColorAndroid="transparent"
               onChangeText={name_address => this.setState({ name_address })}
+              onFocus={() => this.setState({ isFocus: true })}
+              onBlur={() => this.setState({ isFocus: false })}
             />
           </View>
 

@@ -12,6 +12,7 @@ import {
 
 // PACKAGES
 import BackIcon from "react-native-vector-icons/Ionicons";
+import { withNavigation } from "react-navigation";
 
 // FILES
 import { styles } from "./style";
@@ -21,24 +22,27 @@ const { width, height } = Dimensions.get("window");
 const numColumns = 4;
 const size = Dimensions.get("window").width / numColumns;
 
-export default class Tip extends Component {
+class Tip extends Component {
   state = {
     tipAmout: [1, 2, 5]
   };
 
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     headerTitleStyle: { textAlign: "center", flex: 1, color: "white" },
     title: "Tips",
     headerStyle: {
       backgroundColor: "#2B2B2B"
     },
     headerLeft: (
-      <TouchableOpacity style={{ paddingLeft: 20 }}>
+      <TouchableOpacity
+        style={{ paddingLeft: 20 }}
+        onPress={() => navigation.goBack()}
+      >
         <BackIcon name="ios-arrow-back" color="white" size={25} />
       </TouchableOpacity>
     ),
     headerRight: <View style={{ paddingRight: 20 }} />
-  };
+  });
 
   onStarRatingPress(rating) {
     this.setState({
@@ -130,3 +134,5 @@ export default class Tip extends Component {
     );
   }
 }
+
+export default withNavigation(Tip);

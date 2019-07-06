@@ -54,7 +54,7 @@ export default class PhoneVerification extends Component {
           <View style={childContainer}>
             <TouchableOpacity
               style={verifyButton}
-              onPress={() => this.props.navigation.navigate("Map")}
+              onPress={() => this.props.navigation.navigate("PickUp")}
             >
               <Text style={verifyButtonText}> Verify Now </Text>
             </TouchableOpacity>

@@ -10,25 +10,27 @@ import {
 } from "react-native";
 
 // FILES
+
 // PACKAGES
 import Icon from "react-native-vector-icons/Ionicons";
+import { withNavigation } from "react-navigation";
 
 // CONSTANT
 const { width, height } = Dimensions.get("window");
 
-export default class Header extends Component {
+class Header extends Component {
   static defaultProps = {
     title: "",
     content: ""
   };
 
   render() {
-    let { title, content } = this.props;
+    let { title, content, HeaderHeight } = this.props;
 
     return (
       <View
         style={{
-          height: "auto",
+          height: !HeaderHeight ? "auto" : HeaderHeight,
           width: "100%",
           backgroundColor: "#2B2B2B"
         }}
@@ -37,7 +39,10 @@ export default class Header extends Component {
 
         <View style={{ marginLeft: width * 0.07 }}>
           {/* BACK BUTTON */}
-          <TouchableOpacity style={{ color: "white", fontSize: 20 }}>
+          <TouchableOpacity
+            style={{ color: "white", fontSize: 20 }}
+            onPress={() => this.props.navigation.goBack()}
+          >
             <Icon
               name="ios-arrow-back"
               color="white"
@@ -86,3 +91,5 @@ const styles = StyleSheet.create({
     marginBottom: 5
   }
 });
+
+export default withNavigation(Header);

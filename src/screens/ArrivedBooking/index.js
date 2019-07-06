@@ -65,7 +65,7 @@ export default class ApplyBooking extends Component {
         />
 
         <TouchableOpacity
-          onPress={() => alert("chal rha ha")}
+          onPress={() => this.props.navigation.goBack()}
           style={removeIcon}
         >
           <RemoveIcon name="remove" color="#909090" size={30} />
@@ -105,18 +105,22 @@ export default class ApplyBooking extends Component {
             {/* PRICE */}
             <View style={directionRow}>
               <View style={directionColumn}>
-                <Image
-                  style={{
-                    width: 40,
-                    height: 40,
-                    borderRadius: 20,
-                    marginRight: 15
-                  }}
-                  source={{
-                    uri:
-                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT62MX8GWVLGrjgfOaKp3keSIrsgh2hCv_VN3E48hnGNrdnLsyCJQ"
-                  }}
-                />
+                <TouchableOpacity
+                  onPress={() => this.props.navigation.navigate("Chat")}
+                >
+                  <Image
+                    style={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: 20,
+                      marginRight: 15
+                    }}
+                    source={{
+                      uri:
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT62MX8GWVLGrjgfOaKp3keSIrsgh2hCv_VN3E48hnGNrdnLsyCJQ"
+                    }}
+                  />
+                </TouchableOpacity>
               </View>
               <View style={directionColumn}>
                 <Image
@@ -217,7 +221,10 @@ export default class ApplyBooking extends Component {
               </View>
             </View>
           </View>
-          <TouchableOpacity style={arrivedButton}>
+          <TouchableOpacity
+            style={arrivedButton}
+            onPress={() => this.props.navigation.navigate("Rating")}
+          >
             <Text style={arrivedButtonText}>Arrived</Text>
           </TouchableOpacity>
         </View>

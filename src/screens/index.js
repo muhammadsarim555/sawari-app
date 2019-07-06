@@ -9,6 +9,7 @@ import ArrivedBooking from "./ArrivedBooking";
 import Chat from "./Chat";
 import Rating from "./Rating";
 import Tip from "./Tip";
+import PickUp from "./PickUp";
 
 export {
   Home,
@@ -21,5 +22,6 @@ export {
   ArrivedBooking,
   Chat,
   Rating,
-  Tip
+  Tip,
+  PickUp
 };
