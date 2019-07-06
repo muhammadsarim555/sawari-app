@@ -1,20 +1,26 @@
 import React, { Component } from "react";
 import {
-  StyleSheet,
   Text,
   View,
   Image,
   TouchableOpacity,
-  Dimensions
+  Dimensions,
+  ScrollView
 } from "react-native";
 
 // PACKAGES
 import StarRating from "react-native-star-rating";
 import Textarea from "react-native-textarea";
 import BackIcon from "react-native-vector-icons/Ionicons";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { Header } from "react-navigation";
+
+// FILES
+import { styles } from "./style";
 
 // CONSTANT
 const { width, height } = Dimensions.get("window");
+const headerHeight = Header.HEIGHT;
 
 export default class Rating extends Component {
   state = {
@@ -53,174 +59,77 @@ export default class Rating extends Component {
 
   render() {
     let { comment } = this.state;
+    const {
+      container,
+      cardContainer,
+      avatar,
+      body,
+      name,
+      carName,
+      tip,
+      tipDescription,
+      starContainer,
+      starStyling,
+      textArea,
+      submitButton,
+      submitButtonText
+    } = styles;
 
     return (
-      <View style={styles.container}>
-        <View
-          style={{
-            width: "80%",
-            height: "70%",
-            backgroundColor: "white",
-            alignSelf: "center",
-            borderRadius: 20,
-            shadowColor: "blue",
-            shadowOffset: { width: 0, height: 1 },
-            shadowOpacity: 12,
-            shadowRadius: 2,
-            elevation: 3
-          }}
-        >
-          <Image
-            style={styles.avatar}
-            source={{
-              uri: "https://bootdey.com/img/Content/avatar/avatar6.png"
-            }}
-          />
-          <View style={styles.body}>
-            <Text style={styles.name}>Muhammad Sarim</Text>
-            <Text style={styles.carName}>Car Name</Text>
+      <KeyboardAwareScrollView>
+        <View style={container}>
+          <View style={cardContainer}>
+            <Image
+              style={avatar}
+              source={{
+                uri: "https://bootdey.com/img/Content/avatar/avatar6.png"
+              }}
+            />
+            <ScrollView>
+              <View style={body}>
+                <Text style={name}>Muhammad Sarim</Text>
+                <Text style={carName}>Car Name</Text>
 
-            <Text style={styles.tip}>How was your tip?</Text>
-            <Text style={styles.tipDescription}>
-              Your feedback will help improve our driving experience
-            </Text>
-            <View style={{ width: "90%", alignSelf: "center" }}>
-              <StarRating
-                disabled={false}
-                emptyStar={"ios-star-outline"}
-                fullStar={"ios-star"}
-                halfStar={"ios-star-half"}
-                iconSet={"Ionicons"}
-                maxStars={5}
-                rating={this.state.starCount}
-                selectedStar={rating => this.onStarRatingPress(rating)}
-                fullStarColor={"yellow"}
-              />
-              <Textarea
-                containerStyle={{
-                  backgroundColor: "#E5E5E5",
-                  borderRadius: 10,
-                  marginTop: 20,
-                  height: 150
-                }}
-                style={styles.textarea}
-                onChangeText={this.onChange}
-                defaultValue={comment}
-                maxLength={120}
-                placeholder={"Additional Comments..."}
-                placeholderTextColor={"#c7c7c7"}
-                underlineColorAndroid={"transparent"}
-              />
-              <TouchableOpacity
-                style={{
-                  borderRadius: 10,
-                  backgroundColor: "#4252FF",
-                  height: height * 0.06,
-                  width: "100%",
-                  marginTop: 10
-                }}
-                onPress={() =>
-                  this.props.navigation.navigate("PhoneVerification")
-                }
-              >
-                <Text
-                  style={{
-                    fontSize: width * 0.04,
-                    fontWeight: "bold",
-                    textAlign: "center",
-                    color: "white",
-                    lineHeight: height * 0.06
-                  }}
-                >
-                  {" "}
-                  Submit Review{" "}
+                <Text style={tip}>How was your tip?</Text>
+                <Text style={tipDescription}>
+                  Your feedback will help improve our driving experience
                 </Text>
-              </TouchableOpacity>
-            </View>
+                <View style={starContainer}>
+                  <StarRating
+                    disabled={false}
+                    emptyStar={"ios-star-outline"}
+                    fullStar={"ios-star"}
+                    halfStar={"ios-star-half"}
+                    iconSet={"Ionicons"}
+                    maxStars={5}
+                    rating={this.state.starCount}
+                    selectedStar={rating => this.onStarRatingPress(rating)}
+                    fullStarColor={"yellow"}
+                    containerStyle={starStyling}
+                  />
+                  <Textarea
+                    containerStyle={textArea}
+                    onChangeText={this.onChange}
+                    defaultValue={comment}
+                    maxLength={120}
+                    placeholder={"Additional Comments..."}
+                    placeholderTextColor={"#c7c7c7"}
+                    underlineColorAndroid={"transparent"}
+                  />
+                  <TouchableOpacity
+                    style={submitButton}
+                    onPress={() =>
+                      this.props.navigation.navigate("PhoneVerification")
+                    }
+                  >
+                    <Text style={submitButtonText}> Submit Review </Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </ScrollView>
           </View>
         </View>
-      </View>
+      </KeyboardAwareScrollView>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#2B2B2B"
-  },
-  header: {
-    backgroundColor: "red",
-    height: 200
-  },
-  avatar: {
-    width: 130,
-    height: 130,
-    borderRadius: 63,
-    borderWidth: 4,
-    borderColor: "white",
-    marginBottom: 10,
-    alignSelf: "center",
-    position: "absolute",
-    top: -70
-    // marginTop: 130
-  },
-  name: {
-    fontSize: 22,
-    color: "#FFFFFF",
-    fontWeight: "600",
-    alignSelf: "center"
-  },
-  carName: {
-    fontSize: 18,
-    fontWeight: "300",
-    alignSelf: "center"
-  },
-  body: {
-    marginTop: 40
-  },
-  bodyContent: {
-    flex: 1,
-    alignItems: "center",
-    padding: 30
-  },
-  name: {
-    fontSize: 28,
-    color: "#696969",
-    fontWeight: "600",
-    alignSelf: "center",
-    marginTop: 20
-  },
-  info: {
-    fontSize: 16,
-    color: "#00BFFF",
-    marginTop: 10
-  },
-  tip: {
-    fontSize: 24,
-    color: "#696969",
-    marginTop: 10,
-    fontWeight: "600",
-    marginTop: 20,
-    textAlign: "center"
-  },
-  tipDescription: {
-    fontSize: 18,
-    color: "#696969",
-    marginTop: 10,
-    textAlign: "center"
-  },
-  buttonContainer: {
-    marginTop: 10,
-    height: 45,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 20,
-    width: 250,
-    borderRadius: 30,
-    backgroundColor: "#00BFFF"
-  }
-});
