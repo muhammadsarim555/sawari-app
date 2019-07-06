@@ -5,7 +5,8 @@ import {
   Image,
   TouchableOpacity,
   Dimensions,
-  ScrollView
+  ScrollView,
+  StatusBar
 } from "react-native";
 
 // PACKAGES
@@ -78,6 +79,8 @@ export default class Rating extends Component {
     return (
       <KeyboardAwareScrollView>
         <View style={container}>
+          <StatusBar backgroundColor="#2B2B2B" />
+
           <View style={cardContainer}>
             <Image
               style={avatar}

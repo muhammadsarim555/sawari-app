@@ -62,7 +62,7 @@ export const styles = StyleSheet.create({
   },
   applyButtonText: {
     fontWeight: "bold",
-    fontSize: width * 0.04,
+    fontSize: width * 0.05,
     fontFamily: "Courier-Bold",
     color: "white"
   }
