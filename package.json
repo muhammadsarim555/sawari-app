@@ -7,7 +7,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "native-base": "^2.12.1",
     "react": "16.8.3",
     "react-native": "0.59.9",
     "react-native-confirmation-code-input": "^1.0.4",

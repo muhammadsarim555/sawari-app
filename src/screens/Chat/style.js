@@ -47,14 +47,15 @@ export const styles = StyleSheet.create({
   balloon: {
     maxWidth: 250,
     padding: 15,
-    borderRadius: 20
+    borderTopRightRadius: 20
   },
   itemIn: {
-    alignSelf: "flex-start",
-    backgroundColor: "#4252FF"
+    alignSelf: "flex-start"
   },
   itemOut: {
-    alignSelf: "flex-end"
+    alignSelf: "flex-end",
+    backgroundColor: "#4252FF",
+    color: "white"
   },
   time: {
     alignSelf: "flex-end",
@@ -66,7 +67,19 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     backgroundColor: "#eeeeee",
-    borderRadius: 300,
+
     padding: 5
+  },
+  itemOutRadius: {
+    // borderTopRightRadius: 300,
+    // borderTopLeftRadius: 300,
+    // borderBottomLeftRadius: 300,
+    borderRadius: 300
+  },
+  itemInRadius: {
+    // borderTopRightRadius: 300,
+    // borderTopLeftRadius: 300,
+    // borderBottomRightRadius: 300
+    borderRadius: 300
   }
 });

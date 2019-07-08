@@ -108,7 +108,9 @@ export default class Chat extends Component {
       inputContainer,
       inputs,
       btnSend,
-      iconSend
+      iconSend,
+      itemInRadius,
+      itemOutRadius
     } = styles;
     const { data, isFocus } = this.state;
 
@@ -131,12 +133,20 @@ export default class Chat extends Component {
             let inMessage = item.type === "in";
             let itemStyle = inMessage ? itemIn : itemOut;
             return (
-              <View style={[styles.item, itemStyle]}>
-                {!inMessage && this.renderDate(item.date)}
+              <View
+                style={[
+                  styles.item,
+                  itemStyle,
+                  inMessage ? itemInRadius : itemOutRadius
+                ]}
+              >
+                {/* {!inMessage && this.renderDate(item.date)} */}
                 <View style={[balloon]}>
-                  <Text>{item.message}</Text>
+                  <Text style={inMessage ? itemIn : itemOut}>
+                    {item.message}
+                  </Text>
                 </View>
-                {inMessage && this.renderDate(item.date)}
+                {/* {inMessage && this.renderDate(item.date)} */}
               </View>
             );
           }}
