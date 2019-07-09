@@ -13,12 +13,18 @@
     "react-native-gesture-handler": "^1.3.0",
     "react-native-keyboard-aware-scroll-view": "^0.8.0",
     "react-native-maps": "^0.24.2",
+    "react-native-material-textfield": "^0.12.0",
+    "react-native-modal": "^11.1.0",
     "react-native-phone-input": "^0.2.2",
     "react-native-popup-dialog": "^0.18.2",
     "react-native-star-rating": "^1.1.0",
     "react-native-textarea": "^1.0.3",
     "react-native-vector-icons": "^6.5.0",
-    "react-navigation": "^3.11.0"
+    "react-navigation": "^3.11.0",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.3",
+    "redux-persist": "^5.10.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

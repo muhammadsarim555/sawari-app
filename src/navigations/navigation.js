@@ -17,7 +17,7 @@ const AppNavigator = createStackNavigator(
     PickUp: Screens.PickUp
   },
   {
-    initialRouteName: "Chat"
+    initialRouteName: "PickUp"
   }
 );
 
