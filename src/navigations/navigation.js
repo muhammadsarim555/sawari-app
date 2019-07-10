@@ -17,7 +17,7 @@ const AppNavigator = createStackNavigator(
     PickUp: Screens.PickUp
   },
   {
-    initialRouteName: "PickUp"
+    initialRouteName: "SignIn"
   }
 );
 
