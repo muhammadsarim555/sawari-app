@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#F5FCFF"
   },
 
-  searchBar: {
+  image: {
     height: "10%",
     borderRadius: 100,
     width: "20%",
@@ -28,5 +28,17 @@ export const styles = StyleSheet.create({
     shadowOffset: { height: 0, width: 0 },
     elevation: 3,
     flexDirection: "row"
-  }
+  },
+  circleStyle: {
+    width: width * 0.09,
+    height: height * 0.05,
+    flexWrap: "wrap",
+    marginRight: width * 0.04,
+    backgroundColor: "blue",
+    flexDirection: "row",
+    borderRadius: 25,
+    borderWidth: 10,
+    borderColor: "#9BBDFF"
+  },
+  locationIcon: { marginRight: width * 0.04 }
 });

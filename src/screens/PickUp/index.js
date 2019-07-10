@@ -12,14 +12,19 @@ import {
 // PACKAGES
 import MapView from "react-native-maps";
 import Icon from "react-native-vector-icons/Ionicons";
-import RemoveIcon from "react-native-vector-icons/AntDesign";
+import Location from "react-native-vector-icons/Entypo";
+import { TextField } from "react-native-material-textfield";
 
 // FILES
+import { Colors } from "../../constant/appColor";
 import { styles } from "./style";
+
+// CONSTANT
+const { grayColor, pinkColor } = Colors;
 
 export default class PickUp extends Component {
   state = {
-    searchText: ""
+    pickUpLocation: ""
   };
 
   static navigationOptions = {
@@ -27,14 +32,8 @@ export default class PickUp extends Component {
   };
 
   render() {
-    const { searchText } = this.state;
-    const {
-      backIcon,
-      searchBar,
-      searchBarInput,
-      applyButton,
-      applyButtonText
-    } = styles;
+    const { pickUpLocation } = this.state;
+    const { image, circleStyle, locationIcon } = styles;
 
     return (
       <View style={{ flex: 1 }}>
@@ -50,17 +49,78 @@ export default class PickUp extends Component {
           }}
         />
 
-        <View style={searchBar} />
+        <View style={image} />
 
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate("ApplyBooking")}
+        <View
+          style={{
+            width: "100%",
+            backgroundColor: "white",
+            height: "30%",
+            shadowOffset: { width: 10, height: 10 },
+            shadowColor: "red",
+            shadowOpacity: 5.0,
+            shadowRadius: 2,
+            elevation: 3
+          }}
         >
-          <Text>go</Text>
-        </TouchableOpacity>
+          <View
+            style={{
+              width: "80%",
+              alignItems: "center",
+              marginTop: 50,
+              flexWrap: "wrap",
+              flexDirection: "row",
+              alignSelf: "center",
+              justifyContent: "center"
+            }}
+          >
+            <View style={circleStyle} />
+            <TextInput
+              style={{
+                height: 60,
+                borderBottomColor: "gray",
+                borderBottomWidth: 2,
+                width: "70%",
+                alignSelf: "center"
+              }}
+              placeholder="PICKUP"
+              onChangeText={pickUpLocation => this.setState({ pickUpLocation })}
+              value={pickUpLocation}
+            />
+          </View>
 
-        <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-          <Text>back</Text>
-        </TouchableOpacity>
+          <View
+            style={{
+              width: "80%",
+              alignItems: "center",
+              marginTop: 50,
+              flexWrap: "wrap",
+              flexDirection: "row",
+              alignSelf: "center",
+              justifyContent: "center"
+            }}
+          >
+            <Location
+              name="location-pin"
+              color={pinkColor}
+              size={50}
+              style={locationIcon}
+            />
+
+            <TextInput
+              style={{
+                height: 60,
+                borderBottomColor: "gray",
+                borderBottomWidth: 2,
+                width: "70%",
+                alignSelf: "center"
+              }}
+              placeholder="PICKUP"
+              onChangeText={pickUpLocation => this.setState({ pickUpLocation })}
+              value={pickUpLocation}
+            />
+          </View>
+        </View>
       </View>
     );
   }
