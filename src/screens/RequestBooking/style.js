@@ -75,5 +75,25 @@ export const styles = StyleSheet.create({
     fontSize: width * 0.05,
     fontFamily: "Courier-Bold",
     color: whiteColor
-  }
+  },
+  modalStyle: { justifyContent: "flex-end", margin: 0 },
+  listContainer: {
+    backgroundColor: "white",
+    padding: 22,
+    width: "100%",
+    height: "60%",
+    borderRadius: 4,
+    borderColor: "rgba(0, 0, 0, 0.1)"
+  },
+  childContainer: {
+    width: "100%"
+  },
+  contentContainer: {
+    width: "80%",
+    justifyContent: "space-between",
+    alignSelf: "center",
+    flexDirection: "row"
+  },
+  imageStyle: { width: 100, height: 100 },
+  fontSetting: { fontSize: width * 0.03, fontWeight: "300" }
 });
