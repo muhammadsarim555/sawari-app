@@ -14,6 +14,7 @@ import MapView from "react-native-maps";
 import Icon from "react-native-vector-icons/Ionicons";
 import Location from "react-native-vector-icons/Entypo";
 import { TextField } from "react-native-material-textfield";
+import Timeline from "react-native-timeline-listview";
 
 // FILES
 import { Colors } from "../../constant/appColor";
@@ -23,9 +24,27 @@ import { styles } from "./style";
 const { grayColor, pinkColor } = Colors;
 
 export default class PickUp extends Component {
-  state = {
-    pickUpLocation: ""
-  };
+  constructor() {
+    super();
+    this.state = {
+      pickUpLocation: ""
+    };
+    this.data = [
+      {
+        title: "PICKUP",
+        description: "Event 1 Description",
+        icon: (
+          <Location
+            name="location-pin"
+            color={pinkColor}
+            size={50}
+            style={{ marginRight: 30 }}
+          />
+        )
+      },
+      { title: "DROP-OFF", description: "Event 2 Description" }
+    ];
+  }
 
   static navigationOptions = {
     header: null
