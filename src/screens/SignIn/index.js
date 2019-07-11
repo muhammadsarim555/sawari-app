@@ -16,13 +16,15 @@ import {
 // PACKAGES
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import PhoneInput from "react-native-phone-input";
-import Swipeable from "react-native-gesture-handler/Swipeable";
+import { connect } from "react-redux";
 
 // FILES
 import Home from "../Home";
 import { styles } from "./style";
 import Logo from "../../assets/logo/logo.png";
 import { Colors } from "../../constant/appColor";
+import { onLogin } from "../../store/action/auth";
+import Store from "../../store";
 
 // CONSTANT
 const { width, height } = Dimensions.get("window");
@@ -30,7 +32,8 @@ const { width, height } = Dimensions.get("window");
 export default class SignIn extends Component {
   state = {
     isActive: "signUp",
-    isKeyboard: false
+    isKeyboard: false,
+    phoneNo: null
   };
 
   static navigationOptions = {
@@ -64,7 +67,7 @@ export default class SignIn extends Component {
       formButtonText,
       root
     } = styles;
-    const { isActive } = this.state;
+    const { isActive, phoneNo } = this.state;
 
     return (
       <View style={root}>
@@ -142,6 +145,7 @@ export default class SignIn extends Component {
                       marginRight: 20
                     }}
                     textStyle={{ marginLeft: 10, marginRight: 10 }}
+                    onChangeText={e => console.log(e)}
                   />
                 </View>
 
@@ -169,13 +173,15 @@ export default class SignIn extends Component {
                   style={textInput}
                   placeholder={"0317-2142662"}
                   keyboardType={"numeric"}
-                  onChangeText={text => this.setState({ text })}
+                  onChangeText={e => this.setState({ phoneNo: e })}
+                  value={phoneNo}
                 />
 
                 <TouchableOpacity
                   style={formButton}
-                  onPress={() =>
-                    this.props.navigation.navigate("PhoneVerification")
+                  onPress={
+                    () => Store.dispatch(onLogin(phoneNo))
+                    // this.props.navigation.navigate("PhoneVerification")
                   }
                 >
                   <Text style={formButtonText}> Sign in </Text>

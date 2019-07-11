@@ -11,10 +11,11 @@ import { Platform, StyleSheet, Text, View } from "react-native";
 
 // FILES
 import Navigation from "./src/navigations/navigation";
-import firebase from "./src/services/firebase/index";
+import firebase from "./src/constant/credential";
 
 // PACKAGES
-import MapView from "react-native-maps";
+import { Provider } from "react-redux";
+import store from "./src/store";
 
 const instructions = Platform.select({
   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
@@ -34,7 +35,11 @@ export default class App extends Component {
   }
 
   render() {
-    return <Navigation />;
+    return (
+      <Provider store={store}>
+        <Navigation />
+      </Provider>
+    );
   }
 }
 
