@@ -11,7 +11,6 @@ import { Platform, StyleSheet, Text, View } from "react-native";
 
 // FILES
 import Navigation from "./src/navigations/navigation";
-import firebase from "./src/constant/credential";
 
 // PACKAGES
 import { Provider } from "react-redux";
@@ -25,14 +24,14 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component {
-  componentDidMount() {
-    firebase
-      .database()
-      .ref("Users/")
-      .on("value", snapshot => {
-        console.log(snapshot.val());
-      });
-  }
+  // componentDidMount() {
+  //   firebase
+  //     .database()
+  //     .ref("Users/")
+  //     .on("value", snapshot => {
+  //       console.log(snapshot.val());
+  //     });
+  // }
 
   render() {
     return (

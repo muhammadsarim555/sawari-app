@@ -117,7 +117,7 @@ export default class Chat extends Component {
     return (
       <View style={container}>
         {isFocus ? (
-          <CustomHeader title="Muhammad Sarim" HeaderHeight="15%" />
+          <CustomHeader title="Muhammad Sarim" HeaderHeight="20%" />
         ) : (
           <CustomHeader title="Muhammad Sarim" />
         )}
